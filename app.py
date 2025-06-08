@@ -13,15 +13,15 @@ st.markdown("Enter your option data below to simulate a realistic price target a
 # Input fields
 stock_name = st.text_input("Stock Name", value="ZydusLife")
 option_type = st.selectbox("Option Type", ["Call", "Put"])
-spot = st.number_input("Current Spot Price", value=960.0)
-strike = st.number_input("Strike Price", value=960.0)
-option_ltp = st.number_input("Current Option LTP", value=23.1)
-delta = st.number_input("Delta", value=0.55)
-gamma = st.number_input("Gamma", value=0.0074)
-theta = st.number_input("Theta (per day)", value=-0.53)
-vega = st.number_input("Vega", value=0.9)
+spot = st.number_input("Current Spot Price", value=960.0, step=0.1, format="%.2f")
+strike = st.number_input("Strike Price", value=960.0, step=0.1, format="%.2f")
+option_ltp = st.number_input("Current Option LTP", value=23.1, step=0.1, format="%.2f")
+delta = st.number_input("Delta", value=0.55, step=0.01, format="%.4f")
+gamma = st.number_input("Gamma", value=0.0074, step=0.0001, format="%.4f")
+theta = st.number_input("Theta (per day)", value=-0.53, step=0.01, format="%.4f")
+vega = st.number_input("Vega", value=0.9, step=0.01, format="%.4f")
 days = st.number_input("Holding Period (Days)", value=2)
-iv = st.number_input("Implied Volatility (IV %)", value=17.0)
+iv = st.number_input("Implied Volatility (IV %)", value=17.0, step=0.1, format="%.2f")
 
 # Adjust delta/gamma direction for puts
 sign = 1 if option_type == "Call" else -1
